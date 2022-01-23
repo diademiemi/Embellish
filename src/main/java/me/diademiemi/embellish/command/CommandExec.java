@@ -59,6 +59,20 @@ public class CommandExec implements CommandExecutor {
                             } else sender.sendMessage(Message.ERROR_UNKNOWN_ARGS);
                         } else sender.sendMessage(Message.ERROR_NO_PERMS);
                         break;
+                    case "gradient":
+                        if (sender.hasPermission("embellish.gradient")) {
+                            if (args.length > 2) {
+                                if (Tool.isColour(args[1]) && Tool.isColour(args[2])) {
+                                    if (args.length > 3) {
+                                        List<String> textList = Arrays.asList(args);
+                                        String text = String.join(" ", textList.subList(3, textList.size()));
+                                        sender.sendMessage(Message.format(String.format("&7&l--- %s &7&l---\n", Tool.setGradientColour(args[1], args[2], text))));
+                                        sender.spigot().sendMessage(Message.getMessageButtons(Tool.setGradientColour(args[1], args[2], text)));
+                                    } else sender.sendMessage(Message.ERROR_UNKNOWN_ARGS);
+                                } else sender.sendMessage(Message.ERROR_INVALID_COLOUR);
+                            } else sender.sendMessage(Message.ERROR_UNKNOWN_ARGS);
+                        } else sender.sendMessage(Message.ERROR_NO_PERMS);
+                        break;
                     default:
                         sender.sendMessage(Message.ERROR_UNKNOWN_ARGS);
                         break;
