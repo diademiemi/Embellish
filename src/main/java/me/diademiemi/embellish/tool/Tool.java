@@ -174,8 +174,8 @@ public class Tool {
     /**
      * Gets a colours hex code by name
      * 
-     * @param colour
-     * @return
+     * @param colour    Name of the colour
+     * @return  Hex code
      */
     public static String getColourByName(String colour) {
         return colourList.get(colour);
@@ -184,8 +184,8 @@ public class Tool {
     /**
      * Check if a colour is in the colours list
      * 
-     * @param colour
-     * @return
+     * @param colour    Name of the colour
+     * @return  If the colour is in the list
      */
     public static Boolean isColour(String colour) {
         return colourList.containsKey(colour);

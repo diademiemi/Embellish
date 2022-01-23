@@ -54,7 +54,7 @@ public class Message {
     /**
      * Apply hex colours
      * 
-     * @param startTag  What identifies hex colours, such as &#
+     * @param startTag  What identifies hex colours, usually the ampersand and hashtag
      * @param message   The message to format
      * @return  Formatted message with hex colours
      */
