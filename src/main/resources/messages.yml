@@ -8,6 +8,7 @@ HELP: |2-
   &7/embellish preset <preset> <text> &8:&r Apply a preset pattern to text
 ERROR_NO_PERMS: "&#c1301c&lE&#c96112&lr&#c4a705&lr&#177245&lo&#2e5793&lr&#4b2882&l!&r &f- You are not permitted to run this command!"
 ERROR_UNKNOWN_ARGS: "&#c1301c&lE&#c96112&lr&#c4a705&lr&#177245&lo&#2e5793&lr&#4b2882&l!&r &f- Unknown arguments!"
+ERROR_MISSING_ARG: "&#c1301c&lE&#c96112&lr&#c4a705&lr&#177245&lo&#2e5793&lr&#4b2882&l!&r &f- Missing %ARG%!"
 ERROR_INVALID_COLOUR: "&#c1301c&lE&#c96112&lr&#c4a705&lr&#177245&lo&#2e5793&lr&#4b2882&l!&r &f- Not a valid colour!"
 ERROR_INVALID_COLOURS: "&#c1301c&lE&#c96112&lr&#c4a705&lr&#177245&lo&#2e5793&lr&#4b2882&l!&r &f- One of these colours is invalid!"
 ERROR_INVALID_PRESET: "&#c1301c&lE&#c96112&lr&#c4a705&lr&#177245&lo&#2e5793&lr&#4b2882&l!&r &f- Not a valid preset!"

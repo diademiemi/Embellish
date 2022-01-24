@@ -41,9 +41,9 @@ public class CommandExec implements CommandExecutor {
                                     List<String> textList = Arrays.asList(args);
                                     String text = String.join(" ", textList.subList(2, textList.size()));
                                     Formatter.sendMessage(sender, Tool.setSolidColour(args[1], text));
-                                } else sender.sendMessage(Message.ERROR_UNKNOWN_ARGS); // TODO
+                                } else sender.sendMessage(Message.ERROR_MISSING_ARG.replace("%ARG%", "text"));
                             } else sender.sendMessage(Message.ERROR_INVALID_COLOUR);
-                        } else sender.sendMessage(Message.ERROR_UNKNOWN_ARGS); // TODO
+                        } else sender.sendMessage(Message.ERROR_MISSING_ARG.replace("%ARG%", "colour"));
                     } else sender.sendMessage(Message.ERROR_NO_PERMS);
                     break;
                 case "gradient":
@@ -54,9 +54,9 @@ public class CommandExec implements CommandExecutor {
                                     List<String> textList = Arrays.asList(args);
                                     String text = String.join(" ", textList.subList(3, textList.size()));
                                     Formatter.sendMessage(sender, Tool.setGradientColour(args[1], args[2], text));
-                                } else sender.sendMessage(Message.ERROR_UNKNOWN_ARGS); // TODO
+                                } else sender.sendMessage(Message.ERROR_MISSING_ARG.replace("%ARG%", "text"));
                             } else sender.sendMessage(Message.ERROR_INVALID_COLOUR);
-                        } else sender.sendMessage(Message.ERROR_UNKNOWN_ARGS); // TODO
+                        } else sender.sendMessage(Message.ERROR_MISSING_ARG.replace("%ARG%", "two colours"));
                     } else sender.sendMessage(Message.ERROR_NO_PERMS);
                     break;
                 case "pattern":
@@ -89,9 +89,9 @@ public class CommandExec implements CommandExecutor {
                                                 break;
                                         }
                                     } else sender.sendMessage(Message.ERROR_INVALID_COLOURS);
-                                } else sender.sendMessage(Message.ERROR_UNKNOWN_ARGS); // TODO
-                            } else sender.sendMessage(Message.ERROR_UNKNOWN_ARGS); // TODO
-                        } else sender.sendMessage(Message.ERROR_UNKNOWN_ARGS); // TODO
+                                } else sender.sendMessage(Message.ERROR_MISSING_ARG.replace("%ARG%", "text"));
+                            } else sender.sendMessage(Message.ERROR_MISSING_ARG.replace("%ARG%", "colours"));
+                       }  else sender.sendMessage(Message.ERROR_MISSING_ARG.replace("%ARG%", "pattern type"));
                     } else sender.sendMessage(Message.ERROR_NO_PERMS);
                     break;
                 case "listpresets":
@@ -107,9 +107,9 @@ public class CommandExec implements CommandExecutor {
                                     List<String> textList = Arrays.asList(args);
                                     String text = String.join(" ", textList.subList(2, textList.size()));
                                     Formatter.sendMessage(sender, Preset.applyPreset(args[1], text));
-                                } else sender.sendMessage(Message.ERROR_UNKNOWN_ARGS); // TODO
+                                } else sender.sendMessage(Message.ERROR_MISSING_ARG.replace("%ARG%", "text"));
                             } else sender.sendMessage(Message.ERROR_INVALID_PRESET);
-                        } else sender.sendMessage(Message.ERROR_UNKNOWN_ARGS); // TODO
+                        } else sender.sendMessage(Message.ERROR_MISSING_ARG.replace("%ARG%", "preset"));
                     } else sender.sendMessage(Message.ERROR_NO_PERMS);
                     break;
                 case "preview":
@@ -118,7 +118,7 @@ public class CommandExec implements CommandExecutor {
                             List<String> textList = Arrays.asList(args);
                             String text = String.join(" ", textList.subList(1, textList.size()));
                             Formatter.sendMessage(sender, text);
-                        } else sender.sendMessage(Message.ERROR_UNKNOWN_ARGS); // TODO
+                        } else sender.sendMessage(Message.ERROR_MISSING_ARG.replace("%ARG%", "text"));
                     } else sender.sendMessage(Message.ERROR_NO_PERMS);
                     break;
                 default:
