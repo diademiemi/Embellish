@@ -9,7 +9,7 @@ nick-length: 20
 
 presets:
   rgb:
-    type: stretch
+    type: repeat
     colours:
     - red
     - green
@@ -23,7 +23,7 @@ presets:
     - pink
     - aqua
   rainbow:
-    type: repeat
+    type: stretch
     colours:
     - red
     - orange
