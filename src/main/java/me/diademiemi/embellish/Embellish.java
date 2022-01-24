@@ -5,6 +5,7 @@ import org.bukkit.plugin.PluginManager;
 import org.bukkit.permissions.Permission;
 
 import me.diademiemi.embellish.command.CommandExec;
+import me.diademiemi.embellish.command.CommandTabComplete;
 import me.diademiemi.embellish.tool.Colour;
 
 /**
@@ -53,6 +54,7 @@ public class Embellish extends JavaPlugin {
         pm.addPermission(new Permission("embellish.listpresets"));
 
         getCommand("embellish").setExecutor(new CommandExec());
+        getCommand("embellish").setTabCompleter(new CommandTabComplete());
 
         Colour.populateColours();
 

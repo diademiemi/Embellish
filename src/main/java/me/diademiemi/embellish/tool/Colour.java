@@ -1,6 +1,7 @@
 package me.diademiemi.embellish.tool;
 
 import java.util.HashMap;
+import java.util.Set;
 
 public class Colour {
         // Create colours hashmap
@@ -157,6 +158,15 @@ public class Colour {
             colourList.put("whitesmoke", "f5f5f5");
             colourList.put("yellow", "ffff00");
             colourList.put("yellowgreen", "9acd32");
+        }
+
+        /**
+         * Gets set of all the names of defined colours
+         * 
+         * @return Set of colour names
+         */
+        public static Set<String> getColourNames() {
+            return colourList.keySet();
         }
         
         /**

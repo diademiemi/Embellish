@@ -8,6 +8,7 @@ import org.bukkit.command.CommandSender;
 
 import java.util.List;
 import java.util.Arrays;
+
 /**
  * Command class for listening for embellish command
  *
