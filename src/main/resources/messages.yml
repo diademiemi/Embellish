@@ -1,6 +1,6 @@
 # Messages for Embellish plugin.
 HELP: |2-
-  &f&l[ &#c1301c&l-&#c96112&l-&#c4a705&l- &#ffffff&lE&#ececec&lm&#dadada&lb&#c7c7c7&le&#b4b4b4&ll&#a2a2a2&ll&#8f8f8f&li&#7d7d7d&ls&#6a6a6a&lh &#177245&l-&#2e5793&l-&#4b2882&l- &r&l]
+  &7&l[ &#c1301c&l-&#c96112&l-&#c4a705&l- &#ffffff&lE&#ececec&lm&#dadada&lb&#c7c7c7&le&#b4b4b4&ll&#a2a2a2&ll&#8f8f8f&li&#7d7d7d&ls&#6a6a6a&lh &#177245&l-&#2e5793&l-&#4b2882&l- &r&7&l]
   &f/embellish help &r: Show this message
 ERROR_NO_PERMS: "&#c1301c&lE&#c96112&lr&#c4a705&lr&#177245&lo&#2e5793&lr&#4b2882&l!&r &f- You are not permitted to run this command!"
 ERROR_UNKNOWN_ARGS: "&#c1301c&lE&#c96112&lr&#c4a705&lr&#177245&lo&#2e5793&lr&#4b2882&l!&r &f- Unknown arguments!"

@@ -5,7 +5,7 @@ import org.bukkit.plugin.PluginManager;
 import org.bukkit.permissions.Permission;
 
 import me.diademiemi.embellish.command.CommandExec;
-import me.diademiemi.embellish.tool.Tool;
+import me.diademiemi.embellish.tool.Colour;
 
 /**
  * Embellish plugin
@@ -44,6 +44,9 @@ public class Embellish extends JavaPlugin {
         pm.addPermission(new Permission("embellish.use"));
         pm.addPermission(new Permission("embellish.use.solid"));
         pm.addPermission(new Permission("embellish.use.pattern"));
+        pm.addPermission(new Permission("embellish.use.pattern.stretch"));
+        pm.addPermission(new Permission("embellish.use.pattern.repeat"));
+        pm.addPermission(new Permission("embellish.use.pattern.gradient"));
         pm.addPermission(new Permission("embellish.use.gradient"));
         pm.addPermission(new Permission("embellish.use.preset"));
         pm.addPermission(new Permission("embellish.listpresets"));
@@ -51,7 +54,7 @@ public class Embellish extends JavaPlugin {
 
         getCommand("embellish").setExecutor(new CommandExec());
 
-        Tool.populateColours();
+        Colour.populateColours();
 
     }
 
