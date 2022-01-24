@@ -2,6 +2,7 @@ package me.diademiemi.embellish.tool;
 
 import java.util.HashMap;
 import java.util.Set;
+import java.util.regex.Pattern;
 
 public class Colour {
         // Create colours hashmap
@@ -176,7 +177,14 @@ public class Colour {
          * @return  Hex code
          */
         public static String getColourByName(String colour) {
-            return colourList.get(colour);
+            if (colourList.containsKey(colour)) {
+                // Return colour from hashmap if it contains it
+                return colourList.get(colour);
+            } else {
+                // Return self, this should only happen if the string is a hex colour
+                // This function is never called if the colour isn't validated before, so this should be fine
+                return colour;
+            }
         }
     
         /**
@@ -186,7 +194,15 @@ public class Colour {
          * @return  If the colour is in the list
          */
         public static Boolean isColour(String colour) {
-            return colourList.containsKey(colour);
+            if (colourList.containsKey(colour)) {
+                return true;
+            } else {
+                Pattern colourPattern = Pattern.compile("[0-9a-f]{6}");
+                if (colourPattern.matcher(colour).matches()) {
+                    return true;
+                }
+            }
+            return false;
         }
     
         /**
