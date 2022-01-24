@@ -9,4 +9,4 @@ commands:
   embellish:
     description: Command for Embellish. Type /embellish help for more.
     usage: /<command>
-    aliases: [colour, colour]
+    aliases: [colour, color]
