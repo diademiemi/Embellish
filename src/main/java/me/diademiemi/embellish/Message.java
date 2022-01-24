@@ -1,6 +1,7 @@
 package me.diademiemi.embellish;
 
 import org.bukkit.ChatColor;
+import org.bukkit.command.CommandSender;
 
 import net.md_5.bungee.api.chat.ComponentBuilder;
 import net.md_5.bungee.api.chat.HoverEvent;
@@ -104,5 +105,10 @@ public class Message {
         );
 
         return builder.create();
+    }
+
+    public static void sendMessage(CommandSender sender, String colouredText) {
+        sender.sendMessage(format(String.format("&7&l--- %s &7&l---\n", colouredText)));
+        sender.spigot().sendMessage(getMessageButtons(colouredText));
     }
 }

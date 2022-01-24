@@ -191,6 +191,18 @@ public class Tool {
         return colourList.containsKey(colour);
     }
 
+    public static Boolean validateColours(String[] colours) {
+        if (colours.length == 0) {
+            return false;
+        }
+        for (String colour : colours) {
+            if (!isColour(colour)) { 
+                return false;
+            }
+        }
+        return true;
+    }
+
     /**
      * Set solid colour
      *
