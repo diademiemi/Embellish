@@ -34,6 +34,30 @@ public class CommandTabComplete implements TabCompleter {
 		} else if (option.startsWith(current.toLowerCase())) {
 			tabList.add(option);
 		}
+    }
+
+	/**
+	 * Private boolean to determine whether this option should get completed
+     * Variant that ends with a comma for list of colours
+	 *
+	 * @param option	Option to check
+	 * @param current	Currently typed
+	 *
+	 * @return	Boolean of whether to complete
+	 */
+	private void shouldTabEndComma(String option, String current) {
+		if (current.equals("")) {
+			tabList.add(option + ",");
+        } else if (option.startsWith(current.toLowerCase())) {
+            tabList.add(option + ",");
+		} else if (current.endsWith(",")) {
+            tabList.add(current + option + ",");
+        } else if (current.contains(",")) {
+            String trailing = current.substring(current.lastIndexOf(",") + 1).toLowerCase();
+            if (option.startsWith(trailing)) {
+                tabList.add(current + option.replaceFirst(String.format("^%s", trailing), "") + ",");
+            }
+		}
 	}
 
 	/**
@@ -109,8 +133,23 @@ public class CommandTabComplete implements TabCompleter {
                             shouldTab(c, args[1]);
                         }
 
-                } 
+                }
 
+            } else if (args.length == 3) {
+
+                if (args[0].equalsIgnoreCase("gradient") && player.hasPermission("embellish.use.gradient")) {
+
+                    for (String c : colours) {
+                        shouldTab(c, args[2]);
+                    }
+
+                } else if (args[0].equalsIgnoreCase("pattern") && player.hasPermission("embellish.use.pattern")) {
+
+                    for (String c : colours) {
+                        shouldTabEndComma(c, args[2]);
+                    }
+
+                }
             }
 
             return tabList;
