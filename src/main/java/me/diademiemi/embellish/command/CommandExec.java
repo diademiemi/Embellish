@@ -34,7 +34,7 @@ public class CommandExec implements CommandExecutor {
                         } else sender.sendMessage(Message.ERROR_NO_PERMS);
                         break;
                     case "solid":
-                        if (sender.hasPermission("embellish.solid")) {
+                        if (sender.hasPermission("embellish.use.solid")) {
                             if (args.length > 1) {
                                 if (Colour.isColour(args[1])) {
                                    if (args.length > 2) {
@@ -47,7 +47,7 @@ public class CommandExec implements CommandExecutor {
                         } else sender.sendMessage(Message.ERROR_NO_PERMS);
                         break;
                     case "gradient":
-                        if (sender.hasPermission("embellish.gradient")) {
+                        if (sender.hasPermission("embellish.use.gradient")) {
                             if (args.length > 2) {
                                 if (Colour.isColour(args[1]) && Colour.isColour(args[2])) {
                                     if (args.length > 3) {
@@ -60,7 +60,7 @@ public class CommandExec implements CommandExecutor {
                         } else sender.sendMessage(Message.ERROR_NO_PERMS);
                         break;
                     case "pattern":
-                        if (sender.hasPermission("embellish.pattern")) {
+                        if (sender.hasPermission("embellish.use.pattern")) {
                             if (args.length > 1 ) {
                                 if (args.length > 2) {
                                     if (args.length > 3) {
@@ -95,11 +95,24 @@ public class CommandExec implements CommandExecutor {
                         } else sender.sendMessage(Message.ERROR_NO_PERMS);
                         break;
                     case "preview":
-                        if (sender.hasPermission("embellish.preview")) {
+                        if (sender.hasPermission("embellish.use.preview")) {
                             if (args.length > 1) {
                                 List<String> textList = Arrays.asList(args);
                                 String text = String.join(" ", textList.subList(1, textList.size()));
                                 Formatter.sendMessage(sender, text);
+                            } else sender.sendMessage(Message.ERROR_UNKNOWN_ARGS); // TODO
+                        } else sender.sendMessage(Message.ERROR_NO_PERMS);
+                        break;
+                    case "preset":
+                        if (sender.hasPermission("embellish.use.preset")) {
+                            if (args.length > 1) {
+                                if (Preset.isValidPreset(args[1])) {
+                                   if (args.length > 2) {
+                                       List<String> textList = Arrays.asList(args);
+                                       String text = String.join(" ", textList.subList(2, textList.size()));
+                                       Formatter.sendMessage(sender, Preset.applyPreset(args[1], text));
+                                    } else sender.sendMessage(Message.ERROR_UNKNOWN_ARGS); // TODO
+                               } else sender.sendMessage(Message.ERROR_INVALID_PRESET);
                             } else sender.sendMessage(Message.ERROR_UNKNOWN_ARGS); // TODO
                         } else sender.sendMessage(Message.ERROR_NO_PERMS);
                         break;

@@ -49,6 +49,7 @@ public class Embellish extends JavaPlugin {
         pm.addPermission(new Permission("embellish.use.pattern.gradient"));
         pm.addPermission(new Permission("embellish.use.gradient"));
         pm.addPermission(new Permission("embellish.use.preset"));
+        pm.addPermission(new Permission("embellish.use.preview"));
         pm.addPermission(new Permission("embellish.listpresets"));
         pm.addPermission(new Permission("embellish.showcodes"));
 
