@@ -7,3 +7,27 @@ nick-command: "/nick"
 # This determines what the plugin detects as a nickname and shows the command button for
 nick-length: 20
 
+presets:
+  rgb:
+    type: stretch
+    colours:
+    - red
+    - green
+    - blue
+  transpride:
+    type: gradient
+    colours:
+    - aqua
+    - pink
+    - white
+    - pink
+    - aqua
+  rainbow:
+    type: repeat
+    colours:
+    - red
+    - orange
+    - yellow
+    - green
+    - blue
+    - purple

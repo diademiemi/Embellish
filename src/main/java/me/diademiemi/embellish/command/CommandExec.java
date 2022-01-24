@@ -1,9 +1,6 @@
 package me.diademiemi.embellish.command;
 import me.diademiemi.embellish.Message;
-import me.diademiemi.embellish.tool.Colour;
-import me.diademiemi.embellish.tool.Tool;
-import me.diademiemi.embellish.tool.Pattern;
-import me.diademiemi.embellish.tool.Formatter;
+import me.diademiemi.embellish.tool.*;
 
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -104,6 +101,11 @@ public class CommandExec implements CommandExecutor {
                                 String text = String.join(" ", textList.subList(1, textList.size()));
                                 Formatter.sendMessage(sender, text);
                             } else sender.sendMessage(Message.ERROR_UNKNOWN_ARGS); // TODO
+                        } else sender.sendMessage(Message.ERROR_NO_PERMS);
+                        break;
+                    case "listpresets":
+                        if (sender.hasPermission("embellish.listpresets")) {
+                            Formatter.sendPresetsList(sender, Preset.listPresets(), label);
                         } else sender.sendMessage(Message.ERROR_NO_PERMS);
                         break;
                     default:

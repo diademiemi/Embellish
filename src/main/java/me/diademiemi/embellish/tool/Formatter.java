@@ -11,6 +11,7 @@ import net.md_5.bungee.api.chat.BaseComponent;
 import net.md_5.bungee.api.chat.ClickEvent;
 
 import java.util.regex.Pattern;
+import java.util.ArrayList;
 import java.util.regex.Matcher;
 
 public class Formatter {
@@ -70,7 +71,7 @@ public class Formatter {
                 builder.append(
                     new ComponentBuilder(format("&7[&9Nick&7]&r"))
                     .event(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new Text(
-                        format(String.format("&fSet this as a nickname with &7%s", 
+                        format(String.format("&rSet this as a nickname with &7%s", 
                         config.getConfig().getString("nick-command"))))))
                     .event(new ClickEvent(ClickEvent.Action.RUN_COMMAND, 
                         String.format("%1$s %2$s", config.getConfig().getString("nick-command"), colouredText)))
@@ -92,6 +93,31 @@ public class Formatter {
     public static void sendMessage(CommandSender sender, String colouredText) {
         sender.sendMessage(format(String.format("&7&l--- %s &7&l---\n", colouredText)));
         sender.spigot().sendMessage(getMessageButtons(colouredText));
+    }
+
+    public static void sendPresetsList(CommandSender sender, ArrayList<String> presets, String label) {
+        ComponentBuilder builder = new ComponentBuilder();
+        
+        if (presets.size() > 0 ){
+            for (String p : presets) {
+                // Create clickable text for every preset
+                builder.append(
+                    new ComponentBuilder(format(String.format("&f%s", p)))
+                    .event(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new Text(
+                        format(String.format("&rUse the &7%s &rpreset", p)))))
+                    .event(new ClickEvent(ClickEvent.Action.SUGGEST_COMMAND, 
+                        String.format("/%1$s preset %2$s ", label, p)))
+                    .create()
+                );
+                // Add the comma
+                builder.append(
+                    new ComponentBuilder(format("&7, "))
+                    .create()
+                );
+            }
+        }
+        sender.sendMessage(format("&7&l--- &rPresets &7&l---\n"));
+        sender.spigot().sendMessage(builder.create());
     }
 
 }
