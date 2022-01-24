@@ -1,2 +1,9 @@
 # Config file for Embellish. This defines presets and defaults
+
+# The command to use to set nicknames with a button
+# Leave blank to disable: ""
 nick-command: "/nick"
+
+# This determines what the plugin detects as a nickname and shows the command button for
+nick-length: 20
+

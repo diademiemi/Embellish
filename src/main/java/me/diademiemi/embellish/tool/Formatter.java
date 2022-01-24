@@ -63,17 +63,21 @@ public class Formatter {
         // Make a new component (Bungee API).
         ComponentBuilder builder = new ComponentBuilder();
         // Add a click event to the component.
-        if (!colouredText.contains(" ")) {
-            builder.append(
-                new ComponentBuilder(format("&7[&9Nick&7]&r"))
-                .event(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new Text(
-                    format(String.format("&fSet this as a nickname with &7%s", 
-                    config.getConfig().getString("nick-command"))))))
-                .event(new ClickEvent(ClickEvent.Action.RUN_COMMAND, 
-                    String.format("%1$s %2$s", config.getConfig().getString("nick-command"), colouredText)))
-                .create()
-            );
-        }    
+        if (config.getConfig().getString("nick-command") != "") {
+            // Check if this would count as a nickname
+            if (!colouredText.contains(" ") && 
+            colouredText.replaceAll("&([a-fr0-9]|#[0-9a-f]{6})", "").length() <= config.getConfig().getInt("nick-length")) {
+                builder.append(
+                    new ComponentBuilder(format("&7[&9Nick&7]&r"))
+                    .event(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new Text(
+                        format(String.format("&fSet this as a nickname with &7%s", 
+                        config.getConfig().getString("nick-command"))))))
+                    .event(new ClickEvent(ClickEvent.Action.RUN_COMMAND, 
+                        String.format("%1$s %2$s", config.getConfig().getString("nick-command"), colouredText)))
+                    .create()
+                );
+            }    
+        }
 
         builder.append(
             new ComponentBuilder(format("&7[&6Copy&7]&r"))
