@@ -88,7 +88,7 @@ public class CommandExec implements CommandExecutor {
                                                 sender.sendMessage(Message.ERROR_UNKNOWN_ARGS);
                                                 break;
                                         }
-                                    } else sender.sendMessage(Message.ERROR_INVALID_COLOUR);
+                                    } else sender.sendMessage(Message.ERROR_INVALID_COLOURS);
                                 } else sender.sendMessage(Message.ERROR_UNKNOWN_ARGS); // TODO
                             } else sender.sendMessage(Message.ERROR_UNKNOWN_ARGS); // TODO
                         } else sender.sendMessage(Message.ERROR_UNKNOWN_ARGS); // TODO
