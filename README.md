@@ -1,4 +1,4 @@
-<img src="img/logo.png" align="right" alt="Logo" title="Logo" width="300" height="300" />
+<img src="img/logo.png" align="right" alt="Logo" title="Logo" width="250" height="250" />
 
 # Embellish
 
@@ -59,6 +59,6 @@ presets:
     - blue
     - purple
 ```
-For presets, at least one colour needs to be defined. And the type needs to be one of `repeat`, `gradient` or stretch`.  
+For presets, at least one colour needs to be defined. And the type needs to be one of `repeat`, `gradient` or `stretch`.  
 The configuration file can be reloaded by running `/embellish reload`!  
 With `nick-command`, a player can set the result as a nickname by pressing a button if it doesn't contain spaces and the length doesn't exceed `nick-length`.  
