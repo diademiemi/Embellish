@@ -78,6 +78,9 @@ public class CommandExec implements CommandExecutor {
                                                     } else sender.sendMessage(Message.ERROR_NO_PERMS);
                                                     break;
                                                 case "repeat":
+                                                    if (sender.hasPermission("embellish.use.pattern.repeat")) {
+                                                        Formatter.sendMessage(sender, Pattern.repeatPattern(pattern, text));
+                                                    } else sender.sendMessage(Message.ERROR_NO_PERMS);
                                                     break;
                                                 case "gradient":
                                                     break;

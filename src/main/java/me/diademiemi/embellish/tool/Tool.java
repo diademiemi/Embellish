@@ -10,13 +10,24 @@ package me.diademiemi.embellish.tool;
 public class Tool {
 
     /**
-     * Set solid colour
+     * Set solid colour to  a string
      *
      * @param colour Colour to apply as a string
      * @param text  Text to colour
      * @return Text with colour codes injected
      */
     public static String setSolidColour(String colour, String text) {
+        return "&#" + Colour.getColourByName(colour) + text;
+    }
+
+    /**
+     * Set solid colour to a character
+     *
+     * @param colour Colour to apply as a string
+     * @param text  Text to colour
+     * @return Text with colour codes injected
+     */
+    public static String setSolidColour(String colour, char text) {
         return "&#" + Colour.getColourByName(colour) + text;
     }
 
