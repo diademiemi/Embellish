@@ -6,6 +6,7 @@ HELP: |2-
   &7/embellish gradient <colour1> <colour2> <text> &8:&r Apply a gradient between two colours to text
   &7/embellish pattern <stretch,repeat,gradient> <colour1,colour2> <text> &8:&r Apply a pattern with multiple colours to text
   &7/embellish preset <preset> <text> &8:&r Apply a preset pattern to text
+CONFIG_RELOADED: "&fConfig file reloaded!"
 ERROR_NO_PERMS: "&#c1301c&lE&#c96112&lr&#c4a705&lr&#177245&lo&#2e5793&lr&#4b2882&l!&r &f- You are not permitted to run this command!"
 ERROR_UNKNOWN_ARGS: "&#c1301c&lE&#c96112&lr&#c4a705&lr&#177245&lo&#2e5793&lr&#4b2882&l!&r &f- Unknown arguments!"
 ERROR_MISSING_ARG: "&#c1301c&lE&#c96112&lr&#c4a705&lr&#177245&lo&#2e5793&lr&#4b2882&l!&r &f- Missing %ARG%!"

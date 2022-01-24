@@ -1,5 +1,6 @@
 package me.diademiemi.embellish.command;
 import me.diademiemi.embellish.Message;
+import me.diademiemi.embellish.Config;
 import me.diademiemi.embellish.tool.*;
 
 import org.bukkit.command.Command;
@@ -28,6 +29,13 @@ public class CommandExec implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (args.length > 0) {
             switch (args[0].toLowerCase()) {
+                case "reload":
+                    if (sender.hasPermission("embellish.reload")) {
+                        Config.getPluginConfig().reloadConfig();
+                        Config.getMessageConfig().reloadConfig();
+                        sender.sendMessage(Message.CONFIG_RELOADED);
+                    } else sender.sendMessage(Message.ERROR_NO_PERMS);
+                    break;
                 case "help":
                     if (sender.hasPermission("embellish.help")) {
                         sender.sendMessage(Message.HELP);

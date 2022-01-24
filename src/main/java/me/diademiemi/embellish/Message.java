@@ -13,6 +13,7 @@ public class Message {
     private static final Config messageConfig = Config.getMessageConfig();
 
     public static String HELP;
+    public static String CONFIG_RELOADED;
     public static String ERROR_NO_PERMS;
     public static String ERROR_UNKNOWN_ARGS;
     public static String ERROR_MISSING_ARG;
@@ -25,6 +26,7 @@ public class Message {
      */
     public static void reloadMessages() {
         HELP = Formatter.format(messageConfig.getConfig().getString("HELP"));
+        CONFIG_RELOADED = Formatter.format(messageConfig.getConfig().getString("CONFIG_RELOADED"));
         ERROR_NO_PERMS = Formatter.format(messageConfig.getConfig().getString("ERROR_NO_PERMS"));
         ERROR_UNKNOWN_ARGS = Formatter.format(messageConfig.getConfig().getString("ERROR_UNKNOWN_ARGS"));
         ERROR_MISSING_ARG = Formatter.format(messageConfig.getConfig().getString("ERROR_MISSING_ARG"));
