@@ -1,7 +1,7 @@
 package me.diademiemi.embellish.tool;
 import me.diademiemi.embellish.Config;
 
-import org.bukkit.ChatColor;
+import net.md_5.bungee.api.ChatColor;
 import org.bukkit.command.CommandSender;
 
 import net.md_5.bungee.api.chat.ComponentBuilder;
@@ -26,10 +26,8 @@ public class Formatter {
      * @return  Formatted message with colours
      */
     public static String format(String msg) {
-        return translateHexColorCodes("&#", ChatColor.translateAlternateColorCodes('&', msg));
+        return translateHexColorCodes(ChatColor.translateAlternateColorCodes('&', msg));
     }
-
-    public static final char COLOR_CHAR = ChatColor.COLOR_CHAR;
 
     /**
      * Apply hex colours
@@ -38,21 +36,18 @@ public class Formatter {
      * @param message   The message to format
      * @return  Formatted message with hex colours
      */
-    public static String translateHexColorCodes(String startTag, String message) {
-        final Pattern hexPattern = Pattern.compile(startTag + "([A-Fa-f0-9]{6})");
+    public static String translateHexColorCodes(String message) {
+        final Pattern hexPattern = Pattern.compile("&#([A-Fa-f0-9]{6})");
         Matcher matcher = hexPattern.matcher(message);
-        StringBuffer buffer = new StringBuffer(message.length() + 4 * 8);
-        while (matcher.find())
-        {
-            String group = matcher.group(1);
-            matcher.appendReplacement(buffer, COLOR_CHAR + "x"
-                    + COLOR_CHAR + group.charAt(0) + COLOR_CHAR + group.charAt(1)
-                    + COLOR_CHAR + group.charAt(2) + COLOR_CHAR + group.charAt(3)
-                    + COLOR_CHAR + group.charAt(4) + COLOR_CHAR + group.charAt(5)
-                    );
+        while (matcher.find()) {
+            String colour = message.substring(matcher.start(), matcher.end());
+            message = message.replace(colour, ChatColor.of(colour.replace("&", "")) + "");
+            matcher = hexPattern.matcher(message);
         }
-        return matcher.appendTail(buffer).toString();
+        return ChatColor.translateAlternateColorCodes('&', message);
     }
+
+    // }
 
     /**
      * Adds the copy to clipboard and run command components
@@ -102,7 +97,7 @@ public class Formatter {
             for (String p : presets) {
                 // Create clickable text for every preset
                 builder.append(
-                    new ComponentBuilder(format(String.format("&f%s", p)))
+                    new ComponentBuilder(format(String.format("&r%s", Preset.applyPreset(p, p))))
                     .event(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new Text(
                         format(String.format("&rUse the &7%s &rpreset", p)))))
                     .event(new ClickEvent(ClickEvent.Action.SUGGEST_COMMAND, 
