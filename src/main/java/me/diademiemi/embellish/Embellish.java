@@ -43,15 +43,14 @@ public class Embellish extends JavaPlugin {
         pm.addPermission(new Permission("embellish.reload"));
         pm.addPermission(new Permission("embellish.use"));
         pm.addPermission(new Permission("embellish.use.solid"));
+        pm.addPermission(new Permission("embellish.use.gradient"));
         pm.addPermission(new Permission("embellish.use.pattern"));
         pm.addPermission(new Permission("embellish.use.pattern.stretch"));
         pm.addPermission(new Permission("embellish.use.pattern.repeat"));
         pm.addPermission(new Permission("embellish.use.pattern.gradient"));
-        pm.addPermission(new Permission("embellish.use.gradient"));
         pm.addPermission(new Permission("embellish.use.preset"));
         pm.addPermission(new Permission("embellish.use.preview"));
         pm.addPermission(new Permission("embellish.listpresets"));
-        pm.addPermission(new Permission("embellish.showcodes"));
 
         getCommand("embellish").setExecutor(new CommandExec());
 
