@@ -60,5 +60,5 @@ presets:
     - purple
 ```
 For presets, at least one colour needs to be defined. And the type needs to be one of `repeat`, `gradient` or `stretch`.  
-The configuration file can be reloaded by running `/embellish reload`!  You can disable presets without deleting them by setting their type to `disabled` (or anything not valid! :P)  
+The configuration file can be reloaded by running `/embellish reload`!   
 With `nick-command`, a player can set the result as a nickname by pressing a button if it doesn't contain spaces and the length doesn't exceed `nick-length`.  

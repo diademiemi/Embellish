@@ -13,9 +13,10 @@ public class Preset {
      * @return  List of preset names
      */
     public static ArrayList<String> listPresets() {
-        ArrayList<String> list = new ArrayList<String>(
-            config.getConfig().getConfigurationSection("presets").getKeys(false)
-        );
+        ArrayList<String> list = new ArrayList<String>();
+        if (config.getConfig().getKeys(false).contains("presets")) {
+            list.addAll(config.getConfig().getConfigurationSection("presets").getKeys(false));
+        }
         return list;
     }
 

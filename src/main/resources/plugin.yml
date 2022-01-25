@@ -1,12 +1,12 @@
 name: Embellish
 description: Configurable and simple to use command for Spigot servers to generate colour codes for text
 author: diademiemi
-version: 1.0
+version: 1.0.1
 main: me.diademiemi.embellish.Embellish
 api-version: 1.16
 depend: []
 commands:
   embellish:
     description: Command for Embellish. Type /embellish help for more.
-    usage: /<command>
+    usage: /embellish help
     aliases: [colour, color]
